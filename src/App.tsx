@@ -14,6 +14,7 @@ function App() {
   }, [])
 
   console.log(process.env["REACT_HOST"]||"NULL")
+  console.log(process.env)
 
   return (
     <div className="App">
