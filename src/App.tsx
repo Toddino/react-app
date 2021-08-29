@@ -13,7 +13,7 @@ function App() {
     dispatch(fetchNews())
   }, [])
 
-  console.log(process.env["REACT_HOST"]||"NULL")
+  console.log(process.env["WDS_SOCKET_HOST"]||"NULL")
   console.log(process.env)
 
   return (

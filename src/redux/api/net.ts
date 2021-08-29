@@ -7,7 +7,7 @@ export const getDefaultHeaders = () => {
 }
 
 export const baseCurrAPI = ():string => {
-    return process.env["REACT_HOST"]||"";
+    return process.env["WDS_SOCKET_HOST"]||"";
     // return "https://thor-web-dev.corp.awsedison.it"
     // return "http://localhost:8080"
 }
