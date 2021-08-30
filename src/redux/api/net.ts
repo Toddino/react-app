@@ -13,7 +13,7 @@ export const baseCurrAPI = ():string => {
 }
 
 export const urls = {
-    news: (): string => `${baseCurrAPI()}/react-api/news`,
+    news: (): string => `${baseCurrAPI()}/react-api/items`,
 }
 
 export async function client<T>(endpoint: any, tipo: string, customHeader: any, { body, ...customConfig }: any = {}): Promise<T> {
