@@ -2,28 +2,28 @@ import React, { useEffect } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { useAppDispatch, useAppSelector } from './redux/hooks';
-import { fetchNews, newsState } from './redux/reducers/newsSlice';
 import { fetchNewsAPI } from './redux/api/newsAPI';
+import { Container, Content } from 'rsuite';
+import NavigationBar from './components/NavigationBar';
+import { themeState } from './redux/reducers/themeSlice';
+// import 'rsuite/dist/styles/rsuite-default.css';
 
 function App() {
-  const dispatch = useAppDispatch();
-  const state = useAppSelector(newsState).news
+    const state = useAppSelector(themeState).isDark
 
-  useEffect(() => {
-    dispatch(fetchNews())
-  }, [])
+    console.log(process.env["WDS_SOCKET_HOST"]||"NULL")
+    console.log(process.env)
 
-  console.log(process.env["WDS_SOCKET_HOST"]||"NULL")
-  console.log(process.env)
+    const test = true;
 
-  return (
-    <div className="App">
-        <header>
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1>We now have Auth!</h1>
-        </header>
-    </div>
-  );
+    return (
+        <Container>
+            <NavigationBar />
+            <Content>
+                Content
+            </Content>
+        </Container>
+    );
 }
 
 export default App;
