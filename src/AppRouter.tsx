@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import { Header } from 'rsuite';
 import MainContainer from './components/MainContainer';
 import NavigationBar from './components/NavigationBar';
 import { Error404 } from './pages/Error404';
@@ -22,11 +21,6 @@ export default function AppRouter() {
     return (
         <BrowserRouter basename={process.env.PUBLIC_URL}>
             <MainContainer>
-                <Header>
-                    <img src={slime} style={{ width: "200px" }} />
-                </Header>
-                <NavigationBar />
-
                 <Switch>
                     <Route exact path="/" component={getPage(<Home />)} />
                 <Route path="*">

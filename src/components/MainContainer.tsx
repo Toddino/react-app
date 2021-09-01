@@ -1,7 +1,9 @@
+import { Container } from '@material-ui/core';
 import React from 'react';
-import { Container } from 'rsuite'
 import { useAppSelector } from '../redux/hooks';
 import { themeState } from '../redux/reducers/themeSlice';
+import NavigationBar from './NavigationBar';
+import slime from '../resources/img/slime.png'
 
 interface IProps {
     children: any
@@ -9,18 +11,20 @@ interface IProps {
 
 export default function MainContainer(props: IProps) {
     const isDark = useAppSelector(themeState).isDark
+    
 
-    const LightTheme = React.lazy(() => import('./Light'));
-    const DarkTheme = React.lazy(() => import('./Dark'));
 
     return (
         <>
             <React.Suspense fallback={<></>}>
-                { isDark && <LightTheme />}
-                { !isDark && <DarkTheme /> }
+                {/* { isDark && <LightTheme />}
+                { !isDark && <DarkTheme /> } */}
             </React.Suspense>
-            <Container style={{ width: "1080px", height: "250px", margin: "0 auto" }}>
-                {props.children}
+            <Container maxWidth="md" style={{ padding: 0 }}>
+                <img src={slime} style={{ width: "300px" }} />
+                <NavigationBar>
+                    {props.children}
+                </NavigationBar>
             </Container>
         </>
     )
