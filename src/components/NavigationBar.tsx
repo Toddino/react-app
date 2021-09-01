@@ -30,7 +30,7 @@ const NavBarMobile = (props: any) => {
   
     return (
         <Sidebar.Pushable style={{ display: "inline" }}>
-            <Menu inverted style={{ position: "sticky", top: show ? 0 : "calc(100% - 61px)", marginBottom: 0 }}>
+            <Menu inverted style={show ? { position: "sticky", top: 0, marginBottom: 0 } : {}} fixed={show ? undefined : "bottom"}>
                 <Menu.Item>
                 <Image size="mini" src="https://react.semantic-ui.com/logo.png" />
                 </Menu.Item>
