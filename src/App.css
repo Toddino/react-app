@@ -1,38 +1,205 @@
-.App {
+:root {
+  --accent-color: rgb(243, 240, 215);
+  --secondary-accent-color: rgb(206, 229, 208);
+  --main-color: rgb(94, 69, 75);
+  --sub-color: rgb(247, 213, 156);
+  --dark-color: rgb(80,184,231);
+}
+
+.ui.menu {
+  background-color: var(--main-color) !important;
+  border-radius: 0 !important;
+  margin-bottom: 0 !important;
+  position: sticky;
+  top: 0;
+}
+
+.menu > * {
+  color: var(--accent-color) !important;
+}
+
+.menu-logo {
+  filter: invert(1);
+}
+
+.nav-logo {
+  width: 24px;
+  height: 24px;
+}
+
+.nav-logo > g {
+  fill: var(--accent-color)
+}
+
+.logo-container {
+  position: relative;
+  display: inline-block;
+  padding: 1em 5em 1em 1em;
+  overflow: hidden;
+  color: #fff;
+  width: 100%;
+  z-index: 1;
+}
+
+.header-container {
+  background-color: var(--accent-color);
+}
+
+.logo-container svg {
+  width: 200px;
+  height: 200px;
+}
+
+.logo-container svg > g {
+  fill: var(--main-color)
+}
+
+.logo-container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-color);
+  -webkit-transform-origin: 100% 0;
+  -ms-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+  -webkit-transform: skew(-25deg);
+  -ms-transform: skew(-25deg);
+  transform: skew(-25deg);
+  z-index: -1;
+}
+
+.logo-container:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-accent-color);
+  -webkit-transform-origin: 100% 0;
+  -ms-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+  -webkit-transform: skew(-25deg);
+  -ms-transform: skew(-25deg);
+  transform: skew(-25deg);
+  z-index: -2;
+}
+
+.logo-title, .logo-subtitle {
+  display: flex;
+}
+
+.logo-title {
+  align-items: flex-end;
+  margin-bottom: 1rem;
+}
+
+.logo-subtitle {
+  align-items: flex-start;
+}
+
+.alpha-assistenza {
+  font-size: 3rem;
+  text-decoration: underline;
+}
+
+.logo-end {
+  position: relative;
+  display: inline-block;
+  padding: 1em 5em 1em 1em;
+  overflow: hidden;
+  color: #fff;
+  width: 100%;
+}
+
+.logo-end:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-color);
+  -webkit-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: skew(-20deg);
+  -ms-transform: skew(-20deg);
+  transform: skew(-20deg);
+  z-index: -1;
+}
+
+.logo-end:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10px;
+  width: 100%;
+  height: 100%;
+  background: var(--secondary-accent-color);
+  -webkit-transform-origin: 0 100%;
+  -ms-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: skew(-20deg);
+  -ms-transform: skew(-20deg);
+  transform: skew(-20deg);
+  z-index: -1;
+}
+
+.footer {
+  position: relative;
+  background-color: var(--main-color);
+  min-height: 300px;
+  padding: 3em !important;
+}
+
+.footer-icon, .ui.header.footer-icon, .footer-link {
+  color: var(--accent-color);
+}
+
+.footer-link {
+  display: inline;
+  position: relative;
+  overflow: hidden;
+}
+
+.ui.header.footer-icon {
+  margin-bottom: 0;
+}
+
+.footer-link::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  right: 0;
+  width: 0;
+  bottom: -5px;
+  background: var(--accent-color);
+  height: 2px;
+  transition-property: width;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.footer-link:hover::after,
+.footer-link:focus::after,
+.footer-link:active::after {
+  left: 0;
+  right: auto;
+  width: 100%;
+}
+
+.footer-bottom {
+  position: absolute;
+  left: 0;
+  bottom: 1em;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.main-container {
+  box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.125);
+  padding: 1.5em 3em;
 }

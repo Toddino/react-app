@@ -2,7 +2,7 @@ import { Container } from '@material-ui/core';
 import React from 'react';
 import { useAppSelector } from '../redux/hooks';
 import { themeState } from '../redux/reducers/themeSlice';
-import NavigationBar from './NavigationBar';
+import NavigationBarTest from './NavigationBarTest';
 import AlphaIcon from '../resources/img/logo-256.svg'
 import {ReactComponent as ReactLogo} from '../resources/img/test.svg'
 import { Grid, Header, Segment, Item, ItemImage, Icon } from 'semantic-ui-react';
@@ -17,9 +17,9 @@ const HeaderTitle = (props: any) => {
         <>
             <Media at="mobile">
                 <Container style={{ padding: 0 }}>
-                    <NavigationBar>
+                    <NavigationBarTest>
                         {props.children}
-                    </NavigationBar>
+                    </NavigationBarTest>
                 </Container>
                 {/* <Container>
                     <Grid>
@@ -46,30 +46,10 @@ const HeaderTitle = (props: any) => {
                 </Container> */}
             </Media>
             <Media greaterThan="mobile">
-                <Container maxWidth="lg" style={{ padding: 0 }}>
-                    <Grid>
-                        <Grid.Row stretched>
-                            <Grid.Column width={8}>
-                                    <div className="logo-container">
-                                        <ReactLogo />
-                                    </div>
-                            </Grid.Column>
-                            <Grid.Column width={6}>
-                                <div className="logo-title">
-                                    <span className="alpha-assistenza">Alpha Assistenza</span>
-                                </div>
-                                <div className="logo-subtitle">
-                                    CAF - Patronato | Assistenza Legale
-                                </div>
-                            </Grid.Column>
-                            <Grid.Column width={2}>
-                                <div className="logo-end"></div>
-                            </Grid.Column>
-                        </Grid.Row>
-                    </Grid>
-                    <NavigationBar>
+                <Container maxWidth="md" style={{ padding: 0 }}>
+                    <NavigationBarTest>
                         {props.children}
-                    </NavigationBar>
+                    </NavigationBarTest>
                 </Container>
             </Media>
         </>
@@ -79,12 +59,12 @@ const HeaderTitle = (props: any) => {
 const Footer = (props: any) => {
     return(
         <>
-        <Media at="mobile">
-            <Container className="footer">
-                    <Grid >
+            <Media at="mobile">
+                <Container className="footer" style={{ padding: 0, color: "red" }} >
+                    <Grid>
                         <Grid.Row stretched>
-                            <Grid.Column width={8} mobile={16}>
-                                <Header as='h5' className="mobile footer-icon">
+                            <Grid.Column width={8}>
+                                <Header as='h4' className="footer-icon">
                                     <Icon.Group size='large'>
                                         <Icon name='phone' />
                                     </Icon.Group>
@@ -92,7 +72,7 @@ const Footer = (props: any) => {
                                         +390289617434
                                     </a>
                                 </Header>
-                                <Header as='h5' className="mobile footer-icon">
+                                <Header as='h4' className="footer-icon">
                                     <Icon.Group size='large'>
                                         <Icon name='map marker alternate' />
                                     </Icon.Group>
@@ -100,7 +80,7 @@ const Footer = (props: any) => {
                                         Viale Giovanni da Cermenate, 43, 20141 Milano MI
                                     </a>
                                 </Header>
-                                <Header as='h5' className="mobile footer-icon">
+                                <Header as='h4' className="footer-icon">
                                     <Icon.Group size='large'>
                                         <Icon name='facebook official' />
                                     </Icon.Group>
@@ -108,16 +88,8 @@ const Footer = (props: any) => {
                                         Pagina Facebook
                                     </a>
                                 </Header>
-                                <Header as='h5' className="mobile footer-icon">
-                                    <Icon.Group size='large'>
-                                        <Icon name='mail' />
-                                    </Icon.Group>
-                                    <a href="mailto:info@alpha-assistenza.it" target="_blank" className="footer-link underline">
-                                        info@alpha-assistenza.it
-                                    </a>
-                                </Header>
                             </Grid.Column>
-                            <Grid.Column width={8} mobile={16}>
+                            <Grid.Column width={8}>
                                 RIGHT
                             </Grid.Column>
                         </Grid.Row>
@@ -132,7 +104,7 @@ const Footer = (props: any) => {
                     <Grid>
                         <Grid.Row stretched>
                             <Grid.Column width={8}>
-                                <Header as='h5' className="mobile footer-icon">
+                                <Header as='h4' className="footer-icon">
                                     <Icon.Group size='large'>
                                         <Icon name='phone' />
                                     </Icon.Group>
@@ -140,7 +112,7 @@ const Footer = (props: any) => {
                                         +390289617434
                                     </a>
                                 </Header>
-                                <Header as='h5' className="mobile footer-icon">
+                                <Header as='h4' className="footer-icon">
                                     <Icon.Group size='large'>
                                         <Icon name='map marker alternate' />
                                     </Icon.Group>
@@ -148,20 +120,12 @@ const Footer = (props: any) => {
                                         Viale Giovanni da Cermenate, 43, 20141 Milano MI
                                     </a>
                                 </Header>
-                                <Header as='h5' className="mobile footer-icon">
+                                <Header as='h4' className="footer-icon">
                                     <Icon.Group size='large'>
                                         <Icon name='facebook official' />
                                     </Icon.Group>
                                     <a href="https://www.facebook.com/alphaassistenza" target="_blank" className="footer-link underline">
                                         Pagina Facebook
-                                    </a>
-                                </Header>
-                                <Header as='h5' className="mobile footer-icon">
-                                    <Icon.Group size='large'>
-                                        <Icon name='mail' />
-                                    </Icon.Group>
-                                    <a href="mailto:info@alpha-assistenza.it" target="_blank" className="footer-link underline">
-                                        info@alpha-assistenza.it
                                     </a>
                                 </Header>
                             </Grid.Column>
@@ -187,8 +151,8 @@ export default function MainContainer(props: IProps) {
             <MediaContextProvider>
                 <HeaderTitle>
                     {props.children}
+                    <Footer />
                 </HeaderTitle>
-                <Footer />
             </MediaContextProvider>
         </>
     )

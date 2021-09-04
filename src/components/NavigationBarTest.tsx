@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Icon, Image, Menu, Sidebar, Dropdown, Segment, Header } from "semantic-ui-react";
+import { Container, Icon, Image, Menu, Sidebar, Dropdown, Segment, Header, Grid } from "semantic-ui-react";
 import {ReactComponent as ReactLogo} from '../resources/img/test.svg'
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -36,9 +36,9 @@ const NavBarMobile = (props: any) => {
                 inverted
                 vertical
                 visible={visible}
-                style={{ position: "fixed", top: 0, width: "100%", display: "flex", justifyContent: "flex-end" }}
+                style={{ position: "fixed", top: 0, width: "100%" }}
                 >
-                <Menu.Item as='a' style={{ borderTop: "1px solid rgba(255,255,255,.08)" }}>
+                <Menu.Item as='a'>
                     <Icon name='home' />
                     Home
                 </Menu.Item>
@@ -50,7 +50,7 @@ const NavBarMobile = (props: any) => {
                     <Icon name='camera' />
                     Channels
                 </Menu.Item>
-                <Menu.Item onClick={onToggle}> {/*  style={{ position: "absolute", width: "100%", bottom: 0, borderTop: "1px solid rgba(255,255,255,.08)" }} */}
+                <Menu.Item onClick={onToggle} style={{ position: "absolute", width: "100%", bottom: 0, borderTop: "1px solid rgba(255,255,255,.08)" }}>
                     <Icon name='close' />
                 </Menu.Item>
             </Sidebar>
@@ -61,54 +61,80 @@ const NavBarMobile = (props: any) => {
 
 const NavBarDesktop = (props: any) => {
     const { leftItems, rightItems } = props;
-  
+
+    var scrollAndSpeed = (props.yAxis);
+
+    // console.log(scrollAndSpeed, 100 - Math.min(Math.max(scrollAndSpeed, 30), 90) + "%")
+    console.log(100 - Math.min(Math.max(scrollAndSpeed, 75), 100))
+    var width = 100 - Math.min(Math.max(scrollAndSpeed, 75), 100) === 0 ? "100%" : (100 - Math.min(Math.max(scrollAndSpeed, 75), 100) + "%")
+    console.log(
+        width
+    )
+
     return (
-      <Menu>
-        {
-          !props.show &&
-          <Menu.Item>
-            <ReactLogo className="nav-logo" />
-          </Menu.Item>
-        }
-  
-        {leftItems.map((item: any) => (
-          <Menu.Item {...item} />
-        ))}
-        <Dropdown simple text='Dropdown' pointing className='item'>
-            <Dropdown.Menu>
-                <Dropdown.Item>List Item</Dropdown.Item>
-                <Dropdown.Item>List Item</Dropdown.Item>
-                <Dropdown.Divider />
-                <Dropdown.Header>Header Item</Dropdown.Header>
-                <Dropdown.Item>
-                    <i className='dropdown icon' />
-                    <span className='text'>Submenu</span>
-                    <Dropdown.Menu>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown.Item>
-                <Dropdown.Item>List Item</Dropdown.Item>
-            </Dropdown.Menu>
-        </Dropdown>
-        <Menu.Menu position="right">
-          {rightItems.map((item: any) => (
-            <Menu.Item {...item} />
-          ))}
-        </Menu.Menu>
-      </Menu>
+        <Grid style={{ position: "sticky", top: 0 }} verticalAlign="bottom">
+            <Grid.Row style={{ padding: 0 }}>
+                <Grid.Column style={{ width: 100 - Math.min(Math.max(scrollAndSpeed, 75), 90) + "%", 
+                                      height: 100 - Math.min(Math.max(scrollAndSpeed, 75), 90) + "%",
+                                      backgroundColor: "red" }}>
+                    {/* <ReactLogo className="nav-logo" style={{ width: 100 - Math.min(Math.max(scrollAndSpeed, 30), 90) + "%" }} /> */}
+                    <span>
+                        Left
+                    </span>
+                </Grid.Column>
+                <Grid.Column style={{ width: Math.min(Math.max(scrollAndSpeed, 75), 90) + "%", backgroundColor: "blue" }}>
+                    Right
+                </Grid.Column>
+            </Grid.Row>
+            {/* <Grid.Row style={{ padding: 0 }}>
+                <Grid.Column style={{ width: 100 - Math.min(Math.max(scrollAndSpeed, 75), 90) + "%" }}>
+                    <ReactLogo className="nav-logo" />
+                </Grid.Column>
+                <Grid.Column style={{ width: Math.min(Math.max(scrollAndSpeed, 75), 90) + "%" }}>
+                    <Menu>
+                        {leftItems.map((item: any) => (
+                        <Menu.Item {...item} />
+                        ))}
+                        <Dropdown simple text='Dropdown' pointing className='item'>
+                            <Dropdown.Menu>
+                                <Dropdown.Item>List Item</Dropdown.Item>
+                                <Dropdown.Item>List Item</Dropdown.Item>
+                                <Dropdown.Divider />
+                                <Dropdown.Header>Header Item</Dropdown.Header>
+                                <Dropdown.Item>
+                                    <i className='dropdown icon' />
+                                    <span className='text'>Submenu</span>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item>List Item</Dropdown.Item>
+                                        <Dropdown.Item>List Item</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown.Item>
+                                <Dropdown.Item>List Item</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+                        <Menu.Menu position="right">
+                        {rightItems.map((item: any) => (
+                            <Menu.Item {...item} />
+                        ))}
+                        </Menu.Menu>
+                    </Menu>
+                </Grid.Column>
+            </Grid.Row> */}
+        </Grid>
     );
   };
   
 const NavBarChildren = (props: any) => (
-<Container className="main-container" fluid>{props.children}</Container>
+<Container style={{ marginTop: "5em" }}>{props.children}</Container>
 );
 
 function NavBar(props: any) {
     const [visible, setVisible] = useState<boolean>(false)
     const [show, setShow] = useState<boolean>(true)
+    const [yAxis, setYAxis] = useState<number>(0)
 
     const controlNav = () => {
+        setYAxis(window.scrollY)
         if(window.scrollY > 232) {
             setShow(false)
         } else {
@@ -147,7 +173,7 @@ function NavBar(props: any) {
           </Media>
   
           <Media greaterThan="mobile">
-            <NavBarDesktop leftItems={leftItems} rightItems={rightItems} show={show} />
+            <NavBarDesktop leftItems={leftItems} rightItems={rightItems} show={show} yAxis={yAxis} />
             <NavBarChildren>{children}</NavBarChildren>
           </Media>
         </div>

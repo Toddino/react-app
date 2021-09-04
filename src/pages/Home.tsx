@@ -1,6 +1,8 @@
+import Img from '../resources/img/writing.jpg'
 export default function Home() {
     return (
-        <div>
+        <p>
+            {/* <img src={Img} width="200" /> */}
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. In et convallis dui, non varius justo. Praesent dapibus, leo eget tempor eleifend, tellus velit laoreet felis, faucibus tempus felis metus et augue. Mauris fermentum tellus sit amet condimentum tempus. Mauris imperdiet ornare arcu sit amet accumsan. Cras consectetur risus non tempor vehicula. Suspendisse potenti. Nam volutpat mi quis dui aliquet fermentum. Nullam porttitor hendrerit magna eu eleifend. Donec leo purus, lacinia sit amet lacus id, vestibulum condimentum enim. Sed et dui vitae sem congue vestibulum non in nibh. In vitae lectus mollis ipsum pulvinar feugiat eu sit amet est. In ac pulvinar neque.
 
 Aliquam vestibulum tellus pretium erat consectetur blandit. Vivamus ut lectus auctor, vehicula ipsum nec, pretium purus. Nulla lectus nisl, porttitor at magna ac, finibus pulvinar lectus. Etiam fermentum urna quis enim viverra, eget rhoncus ligula molestie. Vestibulum vel elit maximus, euismod nisi at, convallis libero. Vivamus odio libero, mollis eu arcu ultricies, pulvinar tristique metus. Ut sed lorem id nulla tempor facilisis. Vivamus luctus porta magna, in luctus magna posuere eget. Nam elementum nisi sed iaculis consectetur. Cras dolor risus, lobortis eu aliquam et, fringilla non nisl. Phasellus ullamcorper tempor enim sit amet fermentum. In id velit nec turpis iaculis pulvinar vitae a lectus. Vestibulum eu leo molestie, pellentesque purus eget, hendrerit arcu. Proin blandit vehicula dui. Quisque cursus felis at suscipit tincidunt.
@@ -66,6 +68,6 @@ Quisque quis nulla et lacus faucibus posuere nec at lectus. Phasellus lobortis s
 Maecenas ac augue erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut eget egestas dui. Vivamus eu neque diam. Proin sapien justo, venenatis vitae viverra ac, sollicitudin id dolor. Aliquam odio felis, cursus id vehicula eget, fringilla sed turpis. Aenean at congue nisi. Mauris vel enim tempor leo lobortis molestie. Nam pellentesque ut erat euismod vehicula. Curabitur feugiat metus justo. Donec eleifend massa ac nisi elementum elementum. Aenean tortor justo, imperdiet eu pulvinar et, egestas laoreet eros. In a felis sit amet ex elementum tempor. Vestibulum commodo, elit non faucibus tincidunt, odio nisi faucibus ipsum, id placerat enim arcu at sem.
 
 
-        </div>
+        </p>
     )
 }

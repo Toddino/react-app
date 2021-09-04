@@ -6,12 +6,14 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import AppRouter from './AppRouter';
+import AppRouterTest from './AppRouterTest';
 import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <AppRouter />
+      {/* <AppRouterTest /> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')
